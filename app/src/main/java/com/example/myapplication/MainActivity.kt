@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         val floatingActionButton = findViewById<FloatingActionButton>(R.id.customFAB)
         val floatingActionLayout = findViewById<FloatingActionLayout>(R.id.customFABL)
         val floatingLayout = findViewById<FloatingLayout>(R.id.floating_layout)
+        val fab2 = findViewById<FloatingActionButton>(R.id.fab2)
 
         val text = "Next"
         floatingActionButton.text = text
@@ -24,7 +25,13 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, "Clicked!", Toast.LENGTH_SHORT).show()
         }
 
-        floatingActionLayout.setOnClickListener { view: View? -> }
+        floatingActionLayout.setOnClickListener {
+            Toast.makeText(this, "clicked", Toast.LENGTH_LONG).show()
+        }
+
+        fab2.setOnClickListener {
+            Toast.makeText(this, "fab2 clicked", Toast.LENGTH_SHORT).show()
+        }
 
         floatingLayout.onMenuExpandedListener = object : FloatingLayout.OnMenuExpandedListener {
             override fun onMenuCollapsed() {
@@ -34,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             override fun onMenuExpanded() {
                 Toast.makeText(this@MainActivity, "Collapsed", Toast.LENGTH_SHORT).show()
             }
-
         }
+
     }
 }
